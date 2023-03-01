@@ -4,8 +4,6 @@ const spacecargoScraper = require("./utils/spacecargoScarper");
 const createScrapingProcess = asyncHandler(async (req, res, next) => {
   const { scaccounts } = req.body;
 
-  console.log(scaccounts);
-
   if (!scaccounts) {
     return res.status(400).json({ message: "No scaccounts provided" });
   }
@@ -24,7 +22,6 @@ const createScrapingProcess = asyncHandler(async (req, res, next) => {
     }),
   );
 
-  console.log(updatedTrackings);
   const response = await fetch(`${process.env.BACKEND_APP_DOMAIN}/scrapings`, {
     method: "PATCH",
     headers: {
