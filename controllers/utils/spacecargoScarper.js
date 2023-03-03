@@ -9,6 +9,7 @@ async function spacecargoScraper(scaccount) {
   try {
     const browser = await puppeteer.launch({
       headless: true,
+      args: ["--no-sandbox"],
       defaultViewport: { width: 1366, height: 768 },
     });
     const page = await browser.newPage();
